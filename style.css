@@ -1,0 +1,124 @@
+/* Strip the ul of padding and list styling */
+body{
+  background: gray;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+li {
+  /* display: inline-block; */    /* O css avisa que float left ignora inline-block */
+  float: left;
+  margin-right: 1px;
+}
+
+li a{
+  display: block;
+  min-width: 140px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #fff;
+  background: #2f3036;
+  text-decoration: none;
+}
+/* Hover State for top level links */
+
+li:hover a{
+  background: #19c589;
+}
+
+/* Style for dropdown links */
+li:hover ul li a{
+  background: #f3f3f3;
+  color: #2f3036;
+  height: 40px;
+  line-height: 40px;
+}
+
+/* Hover state for dropdown links */
+li:hover ul li a:hover {
+  background: #19c589;
+  color: white;
+
+}
+
+/* Hide dropdown links until they're needed */
+li ul {
+  display: none;
+}
+
+/* Make sure dropdown links vertical */
+li ul li {
+  display: block;
+  float: none;
+}
+
+/* Prevent text wrapping on dropdown links */
+li ul li a{
+  width: auto;
+  min-width: 100px;
+  padding: 0 20 px;
+}
+
+/* Display Dropdown on hover */
+
+ul li a:hover + .hidden, .hidden:hover {
+  display: block;
+}
+
+/* Hide Checkbox */
+
+input[type=checkbox]{
+  display: none;
+}
+
+/* Show menu when invisible checkbox is checked */
+
+input[type=checkbox]:checked ~ #menu  {
+  display: block;
+}
+
+.show-menu {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  background: #19c589;
+  padding: 10px 0;
+  display: none;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 760px){
+  /* Make dropdown links appear links */
+  ul{
+    position: static;
+    display: none;
+  }
+
+  /* create vertical spacing */
+  li{
+    margin-bottom: 1px;
+  }
+
+  /* Make all menu links full width */
+  ul li, li a{
+    width: 100%;
+  }
+  
+  .show-menu {
+    display: block;
+  }
+
+  body{
+    background-image: none;
+  }
+
+}
